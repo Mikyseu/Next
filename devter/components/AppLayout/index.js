@@ -1,19 +1,16 @@
+import styles, { globalStyles } from "./styles"
+
+
 export default function AppLayout({ children }) {
     return (
         <>
-            <main>
-                {children}
-            </main>
-            <style jsx global>{`
-                html, body  {
-                    padding: 0;
-                    margin: 0;
-                    font-family: common-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-                }
-                * {
-                    box-sizing: border-box;
-                }
-            `}</style>
+            <div>
+                <main>
+                    {children}
+                </main>
+            </div>
+            <style jsx>{styles}</style>
+            <style jsx global>{globalStyles}</style>
         </>
     );
 }
