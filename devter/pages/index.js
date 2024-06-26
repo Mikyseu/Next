@@ -6,10 +6,7 @@ import Button from '@/components/Button';
 import GitHub from '@/components/Icons/GitHub';
 import Avatar from '@/components/Avatar';
 
-import {
-  loginWithGitHub,
-  onAuthStateChanged,
-} from '@/components/Firebase/client';
+import { loginWithGitHub, onAuthStateChanged } from '@/firebase/client';
 
 export default function Home() {
   const [user, setUser] = useState(undefined);
