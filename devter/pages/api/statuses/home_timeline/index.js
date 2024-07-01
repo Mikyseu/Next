@@ -13,6 +13,48 @@ const timeline = [
     content: 'Hello World2',
     date: '2021-01-01',
   },
+  {
+    id: '0',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World',
+    date: '2021-01-01',
+  },
+  {
+    id: '1',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World2',
+    date: '2021-01-01',
+  },
+  {
+    id: '0',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World',
+    date: '2021-01-01',
+  },
+  {
+    id: '1',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World2',
+    date: '2021-01-01',
+  },
+  {
+    id: '0',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World',
+    date: '2021-01-01',
+  },
+  {
+    id: '1',
+    avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
+    username: 'github',
+    content: 'Hello World2',
+    date: '2021-01-01',
+  },
 ];
 
 export default (req, res) => {

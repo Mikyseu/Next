@@ -1,15 +1,16 @@
 import AppLayout from '@/components/AppLayout';
 import Devit from '@/components/Devit';
 import { useState, useEffect } from 'react';
+import useUser from '@/hooks/useUser';
+import { fetchLatestDevits } from '@/firebase/client';
 
 export default function HomePage() {
   const [timeline, setTimeline] = useState([]);
+  const user = useUser();
 
   useEffect(() => {
-    fetch('/api/statuses/home_timeline')
-      .then(res => res.json())
-      .then(setTimeline);
-  }, []);
+    user && fetchLatestDevits().then(setTimeline);
+  }, [user]);
 
   return (
     <>
@@ -18,22 +19,27 @@ export default function HomePage() {
           <h2>Inicio</h2>
         </header>
         <section>
-          {timeline.map(({ id, username, avatar, content, date }) => (
-            <Devit
-              key={id}
-              id={id}
-              username={username}
-              avatar={avatar}
-              content={content}
-              date={date}
-            />
-          ))}
+          {timeline.map(
+            ({ id, userName, avatar, content, userId, createdAt }) => (
+              <Devit
+                key={id}
+                id={id}
+                createdAt={createdAt}
+                userName={userName}
+                avatar={avatar}
+                content={content}
+                userId={userId}
+              />
+            ),
+          )}
         </section>
         <nav></nav>
       </AppLayout>
       <style jsx>{`
         header {
           border-bottom: 1px solid #eee;
+          background: #ffffffee;
+          backdrop-filter: blur(5px);
           height: 49px;
           position: sticky;
           width: 100%;
@@ -45,13 +51,11 @@ export default function HomePage() {
         h2 {
           font-weight: 700;
           font-size: 21px;
-        }
-
-        section {
-          padding-top: 49px;
+          padding-left: 15px;
         }
 
         nav {
+          background: #fff;
           bottom: 0;
           border-top: 1px solid #eee;
           width: 100%;
